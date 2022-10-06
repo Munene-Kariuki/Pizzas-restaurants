@@ -12,7 +12,7 @@ class RestaurantPizzasController < ApplicationController
   end
 
   def render_invalid_record_response(exception)
-    render json: {errors: exception.record.errors.full_messages}
+    render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
   end
 
 end
