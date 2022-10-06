@@ -10,6 +10,12 @@ class RestaurantsController < ApplicationController
     render json: restaurant, include: :pizzas
   end 
 
+  def destroy 
+    restaurant = find_restaurant 
+    restaurant.destroy
+    head :no_content 
+  end
+
   private 
   def find_restaurant 
     Restaurant.find(params[:id]) 
